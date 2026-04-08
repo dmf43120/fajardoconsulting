@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fajardo Consulting Group — Fractional Operations & Systems Consulting for scaling companies. We translate operational chaos into clear plans leadership can follow.">
+<meta property="og:title" content="Fajardo Consulting Group">
+<meta property="og:description" content="Fractional Operations & Systems Consulting for scaling companies.">
+<meta property="og:url" content="https://fajardoconsulting.com">
+<title>Fajardo Consulting Group — Operations & Systems Consulting</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* ── HOME-SPECIFIC STYLES ─────────────────── */
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.hero-eyebrow { margin-bottom: 20px; }
+.hero-title {
+  font-size: clamp(44px, 5.5vw, 72px);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.hero-body {
+  font-size: 16px;
+  color: var(--mid);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.hero-stat-n {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+.hero-stat-l {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 5px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+/* Hero right — abstract mark */
+.hero-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.hero-mark {
+  position: relative;
+  width: 340px; height: 340px;
+}
+.hero-mark-ring {
+  position: absolute;
+  border: 1px solid;
+  border-radius: 50%;
+  animation: rotate linear infinite;
+}
+.ring-1 {
+  inset: 0;
+  border-color: rgba(201,168,76,0.12);
+  animation-duration: 40s;
+}
+.ring-2 {
+  inset: 40px;
+  border-color: rgba(201,168,76,0.08);
+  animation-duration: 28s;
+  animation-direction: reverse;
+}
+.ring-3 {
+  inset: 80px;
+  border-color: rgba(201,168,76,0.06);
+  animation-duration: 20s;
+}
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.hero-mark-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-mark-svg { width: 140px; height: 126px; }
+
+/* PROOF BAR */
+.proof-bar {
+  background: var(--s1);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.proof-bar-inner {
+  display: flex;
+  align-items: stretch;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 48px;
+}
+.proof-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 20px;
+  transition: background 0.2s;
+}
+.proof-item:not(:last-child) { border-right: 1px solid var(--border); }
+.proof-item:first-child { padding-left: 0; }
+.proof-item:last-child { padding-right: 0; }
+.proof-icon {
+  width: 36px; height: 36px;
+  border-radius: 2px;
+  background: var(--gold-pale);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.proof-icon svg { width: 16px; height: 16px; }
+.proof-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+.proof-desc { font-size: 11px; color: var(--muted); font-weight: 300; }
+
+/* SERVICES PREVIEW */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.service-card {
+  padding: 32px 28px;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.service-card:hover { transform: translateY(-3px); }
+.svc-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 300;
+  color: rgba(201,168,76,0.12);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.svc-name {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.svc-tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+.svc-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.svc-price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.svc-price-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+.svc-price-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--gold);
+}
+
+/* WHY FCG */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+.why-left .display { font-size: clamp(36px, 4vw, 52px); margin-bottom: 24px; }
+.why-left .lead { max-width: 460px; margin-bottom: 36px; }
+.why-points {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.why-point {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 20px 24px;
+}
+.why-point-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 300;
+  color: rgba(201,168,76,0.2);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 32px;
+}
+.why-point-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+  letter-spacing: 0.04em;
+}
+.why-point-desc { font-size: 12px; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+/* CTA BAND */
+.cta-band {
+  background: var(--s1);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.cta-band::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.cta-band-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 56px 0;
+}
+.cta-band-text .display { font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 8px; }
+.cta-band-text .lead { font-size: 15px; }
+.cta-band-actions { display: flex; gap: 14px; align-items: center; flex-shrink: 0; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero-visual { display: none; }
+  .services-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; gap: 40px; }
+  .proof-bar-inner { flex-direction: column; padding: 0 20px; }
+  .proof-item { border-right: none !important; border-bottom: 1px solid var(--border); padding-left: 0 !important; }
+  .proof-item:last-child { border-bottom: none; }
+}
+@media (max-width: 700px) {
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+  .cta-band-inner { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">FCG</div>
+      <div class="nav-logo-rule"></div>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name">Fajardo Consulting Group</div>
+        <div class="nav-logo-sub">Operations & Systems Consulting</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow anim-fade-up anim-fade-up-1">
+            <div class="eyebrow-line"></div>
+            Fractional Operations Consulting
+          </div>
+          <h1 class="display hero-title anim-fade-up anim-fade-up-2">
+            Your operations,<br>
+            finally <em>working</em><br>
+            <strong>the way they should.</strong>
+          </h1>
+          <p class="hero-body anim-fade-up anim-fade-up-3">
+            We help scaling companies — 50 to 300 employees — untangle broken systems, unclear processes, and operational chaos. We build the clear path forward, then help you execute it.
+          </p>
+          <div class="hero-actions anim-fade-up anim-fade-up-4">
+            <a href="contact.html" class="btn-primary">Book a Free Discovery Call</a>
+            <a href="services.html" class="btn-text">See How We Work <span class="btn-arrow">→</span></a>
+          </div>
+          <div class="hero-stats anim-fade-up anim-fade-up-5">
+            <div>
+              <div class="hero-stat-n">10+</div>
+              <div class="hero-stat-l">Years of operational<br>improvement</div>
+            </div>
+            <div>
+              <div class="hero-stat-n">3</div>
+              <div class="hero-stat-l">Engagement tiers to<br>fit where you are</div>
+            </div>
+            <div>
+              <div class="hero-stat-n">0</div>
+              <div class="hero-stat-l">Fluff. Just clear plans<br>and real execution.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual anim-fade-up anim-fade-up-3">
+          <div class="hero-mark">
+            <div class="hero-mark-ring ring-1"></div>
+            <div class="hero-mark-ring ring-2"></div>
+            <div class="hero-mark-ring ring-3"></div>
+            <div class="hero-mark-center">
+              <svg class="hero-mark-svg" viewBox="0 0 100 90" fill="none">
+                <defs>
+                  <linearGradient id="heroGold" x1="20" y1="10" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#E8C96A"/>
+                    <stop offset="50%" stop-color="#C9A84C"/>
+                    <stop offset="100%" stop-color="#A07C2A"/>
+                  </linearGradient>
+                </defs>
+                <polyline points="8,72 50,18 92,72" stroke="url(#heroGold)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <polyline points="22,72 50,36 78,72" stroke="url(#heroGold)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <rect x="44.5" y="44.5" width="11" height="11" rx="1" transform="rotate(45 50 50)" stroke="url(#heroGold)" stroke-width="2.5" fill="none"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF BAR -->
+  <div class="proof-bar">
+    <div class="proof-bar-inner">
+      <div class="proof-item">
+        <div class="proof-icon">
+          <svg viewBox="0 0 16 16" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/>
+          </svg>
+        </div>
+        <div>
+          <div class="proof-label">10+ Years Experience</div>
+          <div class="proof-desc">Fintech & SaaS operational improvement</div>
+        </div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-icon">
+          <svg viewBox="0 0 16 16" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round">
+            <path d="M2 8l4 4 8-8"/>
+          </svg>
+        </div>
+        <div>
+          <div class="proof-label">Results-Proven</div>
+          <div class="proof-desc">KPI gains, reduced escalations, higher adoption</div>
+        </div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-icon">
+          <svg viewBox="0 0 16 16" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round">
+            <path d="M8 2v12M2 8h12"/>
+          </svg>
+        </div>
+        <div>
+          <div class="proof-label">Phoenix-Based</div>
+          <div class="proof-desc">Available nationwide, remote-first</div>
+        </div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-icon">
+          <svg viewBox="0 0 16 16" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round">
+            <rect x="2" y="4" width="12" height="9" rx="1"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1"/>
+          </svg>
+        </div>
+        <div>
+          <div class="proof-label">No Fluff</div>
+          <div class="proof-desc">Clear plans. Real execution. Measurable results.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow reveal"><div class="eyebrow-line"></div>How We Work</div>
+      <h2 class="display reveal" style="font-size:clamp(36px,4vw,52px);margin-bottom:14px">Three ways to work with <em>FCG</em></h2>
+      <p class="lead reveal" style="margin-bottom:56px;max-width:540px">Every engagement is designed to meet you where you are — and move you forward.</p>
+
+      <div class="services-grid">
+        <div class="card service-card reveal">
+          <div class="card-top-rule"></div>
+          <div class="svc-number">01</div>
+          <div class="svc-name">The Clarity Audit</div>
+          <div class="svc-tagline">See what's actually broken.</div>
+          <div class="svc-desc">A focused 3–4 week deep-dive into your operations, systems, and processes. You receive a prioritized roadmap and executive presentation — clarity you can act on immediately.</div>
+          <div class="svc-price-row">
+            <span class="svc-price-label">Starting at</span>
+            <span class="svc-price-val">$3,500</span>
+          </div>
+        </div>
+        <div class="card card-elevated service-card reveal">
+          <div class="card-top-rule"></div>
+          <div class="svc-number">02</div>
+          <div class="svc-name">Fractional Ops Partner</div>
+          <div class="svc-tagline">Embedded, ongoing execution.</div>
+          <div class="svc-desc">Part-time Head of Operations, monthly retainer. We run your roadmap, build your systems, and give leadership the operational clarity they need — without the full-time hire.</div>
+          <div class="svc-price-row">
+            <span class="svc-price-label">From</span>
+            <span class="svc-price-val">$5,000/mo</span>
+          </div>
+        </div>
+        <div class="card service-card reveal">
+          <div class="card-top-rule"></div>
+          <div class="svc-number">03</div>
+          <div class="svc-name">Systems Transformation</div>
+          <div class="svc-tagline">End-to-end platform overhaul.</div>
+          <div class="svc-desc">Full ownership of a platform rollout, HRIS implementation, or systems migration — from strategy through stabilization and adoption.</div>
+          <div class="svc-price-row">
+            <span class="svc-price-label">Projects from</span>
+            <span class="svc-price-val">$12,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:40px" class="reveal">
+        <a href="services.html" class="btn-ghost">View Full Service Details</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="gold-rule" style="margin:0">
+
+  <!-- WHY FCG -->
+  <section class="section">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-left">
+          <div class="eyebrow reveal"><div class="eyebrow-line"></div>Why FCG</div>
+          <h2 class="display reveal" style="font-size:clamp(36px,4vw,52px);margin-bottom:20px">Built from the <em>inside out.</em></h2>
+          <p class="lead reveal">For over a decade, across fintech and SaaS, I was always the person who looked at how things were running — and found a way to make them run better. Not because it was in my job description. Because I couldn't look at something inefficient and leave it that way.</p>
+          <p class="lead reveal" style="margin-top:16px;margin-bottom:36px">Fajardo Consulting Group is that instinct, formalized.</p>
+          <a href="about.html" class="btn-text reveal">Read the Full Story <span class="btn-arrow">→</span></a>
+        </div>
+        <div class="why-points">
+          <div class="card why-point reveal">
+            <div class="why-point-num">01</div>
+            <div>
+              <div class="why-point-title">We've been in the trenches</div>
+              <div class="why-point-desc">From call center agent to platform success manager — every level, every function, always owning the operational work.</div>
+            </div>
+          </div>
+          <div class="card why-point reveal">
+            <div class="why-point-num">02</div>
+            <div>
+              <div class="why-point-title">We solve the root cause, not the symptom</div>
+              <div class="why-point-desc">The visible problem is rarely the real problem. We dig until we find what's actually causing the breakdown — then we fix that.</div>
+            </div>
+          </div>
+          <div class="card why-point reveal">
+            <div class="why-point-num">03</div>
+            <div>
+              <div class="why-point-title">We translate complexity into clarity</div>
+              <div class="why-point-desc">Our work ends with a plan your leadership team can follow and your teams can execute. Not a report that sits in a folder.</div>
+            </div>
+          </div>
+          <div class="card why-point reveal">
+            <div class="why-point-num">04</div>
+            <div>
+              <div class="why-point-title">We move fast</div>
+              <div class="why-point-desc">Day one of every engagement starts with momentum. We don't spend weeks getting oriented — we get to work.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="container">
+      <div class="cta-band-inner">
+        <div class="cta-band-text">
+          <h2 class="display reveal">Ready to build the<br><em>clear path forward?</em></h2>
+          <p class="lead reveal" style="margin-top:10px">Start with a free 30-minute discovery call. No pitch — just a real conversation.</p>
+        </div>
+        <div class="cta-band-actions reveal">
+          <a href="contact.html" class="btn-primary">Book Your Discovery Call</a>
+          <a href="mailto:deanna@fajardoconsulting.com" class="btn-ghost">Email Directly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:16px">
+          <div class="nav-logo-mark">FCG</div>
+          <div class="nav-logo-rule"></div>
+          <div class="nav-logo-text">
+            <div class="nav-logo-name">Fajardo Consulting Group</div>
+            <div class="nav-logo-sub">Operations & Systems Consulting</div>
+          </div>
+        </div>
+        <p>We help scaling companies translate operational chaos into clear, executable plans leadership can actually follow.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#audit">The Clarity Audit</a></li>
+          <li><a href="services.html#partner">Fractional Ops Partner</a></li>
+          <li><a href="services.html#transformation">Systems Transformation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 Fajardo Consulting Group LLC · Phoenix, AZ</div>
+      <a href="mailto:deanna@fajardoconsulting.com" class="footer-email">deanna@fajardoconsulting.com</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
