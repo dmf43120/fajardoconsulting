@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FCG Services — The Clarity Audit, Fractional Ops Partner, and Systems Transformation. Fractional operations consulting for scaling companies.">
+<title>Services — Fajardo Consulting Group</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+<style>
+/* PAGE HERO */
+.page-hero {
+  padding: 100px 0 72px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 500px; height: 400px;
+  background: radial-gradient(ellipse at top right, rgba(201,168,76,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+.page-hero-title { font-size: clamp(44px,5vw,68px); margin-bottom: 18px; }
+.page-hero-sub { font-size: 16px; color: var(--mid); max-width: 560px; line-height: 1.75; font-weight: 300; }
+/* SERVICE SECTIONS */
+.service-section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 90px;
+}
+.service-section:last-child { border-bottom: none; }
+.service-section-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 72px;
+  align-items: start;
+}
+.service-section-inner.reverse { direction: rtl; }
+.service-section-inner.reverse > * { direction: ltr; }
+.svc-left {}
+.svc-num-large {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 96px;
+  font-weight: 300;
+  color: rgba(201,168,76,0.08);
+  line-height: 1;
+  margin-bottom: -20px;
+}
+.svc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px,3.5vw,48px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.svc-title em { font-style: italic; color: var(--gold); }
+.svc-subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.svc-body {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+.svc-ideal {
+  background: var(--s2);
+  border-left: 2px solid var(--gold-dim);
+  padding: 14px 18px;
+  margin-bottom: 28px;
+  border-radius: 0;
+}
+.svc-ideal-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 6px;
+}
+.svc-ideal-text { font-size: 13px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+.svc-price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.svc-price-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+.svc-price-small { font-size: 13px; color: var(--muted); }
+.svc-right {}
+.svc-details-card {
+  background: var(--s1);
+  border: 1px solid var(--bs);
+  border-radius: 2px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.svc-details-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.svc-details-section { margin-bottom: 24px; }
+.svc-details-section:last-child { margin-bottom: 0; }
+.svc-details-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  margin-bottom: 12px;
+}
+.svc-details-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.svc-details-list li {
+  font-size: 13px;
+  color: var(--mid);
+  display: flex;
+  gap: 10px;
+  font-weight: 300;
+  line-height: 1.5;
+}
+.svc-details-list li::before {
+  content: '—';
+  color: var(--gold-dim);
+  flex-shrink: 0;
+}
+.svc-timeline-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.svc-timeline-item:last-child { border-bottom: none; padding-bottom: 0; }
+.svc-timeline-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--gold-dim);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.svc-timeline-phase {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+.svc-timeline-desc {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.55;
+  font-weight: 300;
+}
+.svc-meta-row {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.svc-meta-item {
+  flex: 1;
+  padding: 12px 16px;
+  border-right: 1px solid var(--border);
+  text-align: center;
+}
+.svc-meta-item:last-child { border-right: none; }
+.svc-meta-val {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.svc-meta-lbl { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+/* COMPARISON TABLE */
+.comparison-section { background: var(--s1); padding: 72px 0; border-top: 1px solid var(--border); }
+.comparison-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+.comparison-table th, .comparison-table td {
+  padding: 14px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.comparison-table th {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  background: var(--s2);
+}
+.comparison-table td { color: var(--mid); font-weight: 300; }
+.comparison-table td:first-child { color: var(--white); font-weight: 500; }
+.comparison-table tr:hover td { background: rgba(255,255,255,0.02); }
+.check { color: var(--gold); font-size: 15px; }
+.dash { color: var(--muted); }
+/* CTA */
+.svc-cta { background: var(--s2); border-top: 1px solid var(--border); padding: 72px 0; }
+.svc-cta-inner { text-align: center; }
+.svc-cta-inner .display { font-size: clamp(32px,4vw,52px); margin-bottom: 16px; }
+.svc-cta-inner .lead { margin-bottom: 36px; max-width: 500px; margin-left: auto; margin-right: auto; }
+.svc-cta-actions { display: flex; gap: 14px; justify-content: center; }
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .service-section-inner { grid-template-columns: 1fr; gap: 40px; }
+  .service-section-inner.reverse { direction: ltr; }
+  .svc-num-large { font-size: 64px; }
+  .comparison-table { font-size: 12px; }
+  .comparison-table th, .comparison-table td { padding: 10px 12px; }
+  .svc-cta-actions { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">FCG</div>
+      <div class="nav-logo-rule"></div>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name">Fajardo Consulting Group</div>
+        <div class="nav-logo-sub">Operations & Systems Consulting</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="about.html" class="nav-link">About</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+</div>
+<main>
+<div class="page-hero">
+  <div class="container">
+    <div class="eyebrow anim-fade-up anim-fade-up-1"><div class="eyebrow-line"></div>How We Work</div>
+    <h1 class="display page-hero-title anim-fade-up anim-fade-up-2">Three ways to work with <em>FCG</em></h1>
+    <p class="page-hero-sub anim-fade-up anim-fade-up-3">Every engagement is designed to meet you where you are — and build the operational foundation your company needs to scale without the chaos.</p>
+  </div>
+</div>
+<!-- SERVICE 01: CLARITY AUDIT -->
+<section class="service-section" id="audit">
+  <div class="container">
+    <div class="service-section-inner">
+      <div class="svc-left">
+        <div class="svc-num-large reveal">01</div>
+        <h2 class="svc-title reveal">The Clarity <em>Audit</em></h2>
+        <p class="svc-subtitle reveal">See what's actually broken.</p>
+        <p class="svc-body reveal">A focused 3–4 week engagement where we go deep on your operations, systems, and processes — and deliver a prioritized, executive-ready plan you can act on immediately. This is your entry point: low risk, high clarity, and a clear foundation for what comes next.</p>
+        <div class="svc-ideal reveal">
+          <div class="svc-ideal-label">Ideal For</div>
+          <div class="svc-ideal-text">Companies that sense something is off operationally but lack the visibility to articulate exactly what. Also the right starting point for any scaling company that wants an objective operational assessment before making major system or team investments.</div>
+        </div>
+        <div class="svc-price-block reveal">
+          <div class="svc-price-big">$3,500 – $5,000</div>
+          <div class="svc-price-small">One-time engagement</div>
+        </div>
+        <a href="contact.html" class="btn-primary reveal">Start with an Audit</a>
+      </div>
+      <div class="svc-right">
+        <div class="svc-details-card reveal">
+          <div class="svc-meta-row" style="margin-bottom:24px">
+            <div class="svc-meta-item"><div class="svc-meta-val">3–4</div><div class="svc-meta-lbl">Weeks</div></div>
+            <div class="svc-meta-item"><div class="svc-meta-val">~12</div><div class="svc-meta-lbl">Client Hrs</div></div>
+            <div class="svc-meta-item"><div class="svc-meta-val">5</div><div class="svc-meta-lbl">Deliverables</div></div>
+          </div>
+          <div class="svc-details-section">
+            <div class="svc-details-label">Engagement Phases</div>
+            <div class="svc-timeline-item">
+              <div class="svc-timeline-dot"></div>
+              <div><div class="svc-timeline-phase">Week 1 — Discovery & Intake</div><div class="svc-timeline-desc">Kickoff, document review, stakeholder interviews, scope definition</div></div>
+            </div>
+            <div class="svc-timeline-item">
+              <div class="svc-timeline-dot"></div>
+              <div><div class="svc-timeline-phase">Week 2 — Deep Assessment</div><div class="svc-timeline-desc">Systems audit, data analysis, root cause analysis, pain point identification</div></div>
+            </div>
+            <div class="svc-timeline-item">
+              <div class="svc-timeline-dot"></div>
+              <div><div class="svc-timeline-phase">Week 3 — Synthesis & Build</div><div class="svc-timeline-desc">Findings prioritization, 90-day roadmap development, quick wins identification</div></div>
+            </div>
+            <div class="svc-timeline-item">
+              <div class="svc-timeline-dot"></div>
+              <div><div class="svc-timeline-phase">Week 4 — Delivery & Handoff</div><div class="svc-timeline-desc">Executive presentation, full report delivery, Q&A, follow-up call</div></div>
+            </div>
+          </div>
+          <div class="svc-details-section">
+            <div class="svc-details-label">What You Receive</div>
+            <ul class="svc-details-list">
+              <li>Written Findings Report (10–15 pages)</li>
+              <li>Prioritized 90-Day Operational Roadmap</li>
+              <li>Quick Wins Summary (start this week)</li>
+              <li>Executive Presentation for leadership alignment</li>
+              <li>30-minute follow-up call within 14 days</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SERVICE 02: FRACTIONAL OPS PARTNER -->
+<section class="service-section" id="partner" style="background:rgba(20,20,18,0.5)">
+  <div class="container">
+    <div class="service-section-inner reverse">
+      <div class="svc-left">
+        <div class="svc-num-large reveal">02</div>
+        <h2 class="svc-title reveal">Fractional Ops <em>Partner</em></h2>
+        <p class="svc-subtitle reveal">Embedded, ongoing execution.</p>
+        <p class="svc-body reveal">You get a part-time Head of Operations — embedded in your team, running your roadmap, building your systems, and giving your leadership the operational clarity they need. Without the cost or commitment of a full-time executive hire. Monthly retainer, 3-month minimum.</p>
+        <div class="svc-ideal reveal">
+          <div class="svc-ideal-label">Ideal For</div>
+          <div class="svc-ideal-text">Companies that know what needs to change and need experienced operational leadership to drive execution. Often the natural next step after a Clarity Audit. Best for companies between 50–300 employees scaling faster than their operations can handle.</div>
+        </div>
+        <div class="svc-price-block reveal">
+          <div class="svc-price-big">$5,000 – $7,000</div>
+          <div class="svc-price-small">/ month · 3-month minimum</div>
+        </div>
+        <a href="contact.html" class="btn-primary reveal">Discuss This Engagement</a>
+      </div>
+      <div class="svc-right">
+        <div class="svc-details-card reveal">
+          <div class="svc-meta-row" style="margin-bottom:24px">
+            <div class="svc-meta-item"><div class="svc-meta-val">15–20</div><div class="svc-meta-lbl">Hrs/Week</div></div>
+            <div class="svc-meta-item"><div class="svc-meta-val">3 mo</div><div class="svc-meta-lbl">Minimum</div></div>
+            <div class="svc-meta-item"><div class="svc-meta-val">30 day</div><div class="svc-meta-lbl">Notice</div></div>
+          </div>
+          <div class="svc-details-section">
+            <div class="svc-details-label">Engagement Structure</div>
+            <div class="svc-timeline-item">
+              <div class="svc-timeline-dot"></div>
+              <div><div class="svc-timeline-phase">Month 1 — Onboarding & Foundation</div><div class="svc-timeline-desc">Systems access, stakeholder mapping, quick wins, OKRs & baseline KPIs</div></div>
+            </div>
+            <div class="svc-timeline-item">
+              <div class="svc-timeline-dot"></div>
+              <div><div class="svc-timeline-phase">Month 2–3 — Execution & Optimization</div><div class="svc-timeline-desc">Roadmap execution, systems builds, dashboards, weekly leadership updates</div></div>
+            </div>
+            <div class="svc-timeline-item">
+              <div class="svc-timeline-dot"></div>
+              <div><div class="svc-timeline-phase">Month 4+ — Sustained Operations</div><div class="svc-timeline-desc">Ongoing momentum, roadmap adaptation, quarterly reviews</div></div>
+            </div>
+          </div>
+          <div class="svc-details-section">
+            <div class="svc-details-label">Included Every Month</div>
+            <ul class="svc-details-list">
+              <li>Weekly leadership sync (30–45 min)</li>
+              <li>Bi-weekly written progress report</li>
+              <li>Live KPI dashboard (built in first 30 days)</li>
+              <li>Systems implementation & optimization work</li>
+              <li>Quarterly operational review presentation</li>
+              <li>All SOPs, process maps, and documentation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SERVICE 03: SYSTEMS TRANSFORMATION -->
+<section class="service-section" id="transformation">
+  <div class="container">
+    <div class="service-section-inner">
+      <div class="svc-left">
+        <div class="svc-num-large reveal">03</div>
+        <h2 class="svc-title reveal">Systems <em>Transformation</em></h2>
+        <p class="svc-subtitle reveal">End-to-end platform & ops overhaul.</p>
+        <p class="svc-body reveal">Full ownership of a platform rollout, systems implementation, or migration — from strategy through stabilization and adoption. For companies in the middle of major operational change who need a seasoned hand to lead it properly.</p>
+        <div class="svc-ideal reveal">
+          <div class="svc-ideal-label">Ideal For</div>
+          <div class="svc-ideal-text">Companies mid-implementation, recovering from a failed rollout, or preparing to launch a critical new platform. Draws directly on deep SaaS and fintech platform experience across multiple enterprise systems.</div>
+        </div>
+        <div class="svc-price-block reveal">
+          <div class="svc-price-big">$12,000 – $25,000</div>
+          <div class="svc-price-small">Project-based · scoped per engagement</div>
+        </div>
+        <a href="contact.html" class="btn-primary reveal">Discuss Your Project</a>
+      </div>
+      <div class="svc-right">
+        <div class="svc-details-card reveal">
+          <div class="svc-meta-row" style="margin-bottom:24px">
+            <div class="svc-meta-item"><div class="svc-meta-val">8–16</div><div class="svc-meta-lbl">Weeks</div></div>
+            <div class="svc-meta-item"><div class="svc-meta-val">20–25</div><div class="svc-meta-lbl">Hrs/Week</div></div>
+            <div class="svc-meta-item"><div class="svc-meta-val">4</div><div class="svc-meta-lbl">Phases</div></div>
+          </div>
+          <div class="svc-details-section">
+            <div class="svc-details-label">Project Phases</div>
+            <div class="svc-timeline-item">
+              <div class="svc-timeline-dot"></div>
+              <div><div class="svc-timeline-phase">Phase 1 — Discovery & Strategy</div><div class="svc-timeline-desc">Stakeholder alignment, current state audit, requirements, implementation plan</div></div>
+            </div>
+            <div class="svc-timeline-item">
+              <div class="svc-timeline-dot"></div>
+              <div><div class="svc-timeline-phase">Phase 2 — Build & Configure</div><div class="svc-timeline-desc">Platform configuration, vendor coordination, data migration, training materials</div></div>
+            </div>
+            <div class="svc-timeline-item">
+              <div class="svc-timeline-dot"></div>
+              <div><div class="svc-timeline-phase">Phase 3 — Launch & Adoption</div><div class="svc-timeline-desc">Phased go-live, live training, adoption monitoring, rapid-response support</div></div>
+            </div>
+            <div class="svc-timeline-item">
+              <div class="svc-timeline-dot"></div>
+              <div><div class="svc-timeline-phase">Phase 4 — Stabilization & Handoff</div><div class="svc-timeline-desc">Success validation, runbooks, knowledge transfer, close-out report</div></div>
+            </div>
+          </div>
+          <div class="svc-details-section">
+            <div class="svc-details-label">What You Receive</div>
+            <ul class="svc-details-list">
+              <li>Implementation Strategy & Project Plan</li>
+              <li>Data Migration Plan & Validated Data Set</li>
+              <li>User Training Materials by Role</li>
+              <li>Post-Launch Adoption Metrics Report</li>
+              <li>Internal Runbooks & Knowledge Base</li>
+              <li>Project Close-Out Report</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- COMPARISON TABLE -->
+<section class="comparison-section">
+  <div class="container">
+    <div class="eyebrow reveal"><div class="eyebrow-line"></div>Compare Engagements</div>
+    <h2 class="display reveal" style="font-size:clamp(32px,3.5vw,44px);margin-bottom:8px">Not sure which is right for <em>you?</em></h2>
+    <p class="lead reveal" style="max-width:480px">Here's a side-by-side look at what each engagement covers.</p>
+    <div style="overflow-x:auto">
+      <table class="comparison-table reveal">
+        <thead>
+          <tr>
+            <th>What You Need</th>
+            <th>Clarity Audit</th>
+            <th>Fractional Partner</th>
+            <th>Systems Transform.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Know what's broken</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>A prioritized roadmap</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Ongoing execution support</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Platform / systems implementation</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>Weekly leadership cadence</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>KPI dashboards built</td><td class="dash">—</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Data migration support</td><td class="dash">—</td><td class="dash">—</td><td class="check">✓</td></tr>
+          <tr><td>Defined end date</td><td class="check">✓</td><td class="dash">Flexible</td><td class="check">✓</td></tr>
+          <tr>
+            <td style="font-weight:600;color:var(--white)">Investment</td>
+            <td style="color:var(--gold);font-weight:500">$3,500–$5,000</td>
+            <td style="color:var(--gold);font-weight:500">$5–7k/mo</td>
+            <td style="color:var(--gold);font-weight:500">$12–25k</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- CTA -->
+<div class="svc-cta">
+  <div class="container">
+    <div class="svc-cta-inner">
+      <h2 class="display reveal">Not sure where to start? <em>Start here.</em></h2>
+      <p class="lead reveal">A free 30-minute discovery call costs nothing and tells you exactly which engagement makes sense for where you are right now.</p>
+      <div class="svc-cta-actions reveal">
+        <a href="contact.html" class="btn-primary">Book a Free Discovery Call</a>
+        <a href="mailto:deanna@fajardoconsulting.com" class="btn-ghost">Email Directly</a>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:16px">
+          <div class="nav-logo-mark">FCG</div>
+          <div class="nav-logo-rule"></div>
+          <div class="nav-logo-text">
+            <div class="nav-logo-name">Fajardo Consulting Group</div>
+            <div class="nav-logo-sub">Operations & Systems Consulting</div>
+          </div>
+        </div>
+        <p>We help scaling companies translate operational chaos into clear, executable plans leadership can actually follow.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#audit">The Clarity Audit</a></li>
+          <li><a href="services.html#partner">Fractional Ops Partner</a></li>
+          <li><a href="services.html#transformation">Systems Transformation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Fajardo Consulting Group LLC · Phoenix, AZ</div>
+      <a href="mailto:deanna@fajardoconsulting.com" class="footer-email">deanna@fajardoconsulting.com</a>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
